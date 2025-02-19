@@ -21,15 +21,7 @@ yarn-error.log
 
 # VS Code settings
 .vscode/
-.DS_Store
 
 # OS-generated files
-Thumbs.db
-node_modules/
-.env
 .DS_Store
-.vscode/
-backend/
-chatsphere-new/
-package-lock.json
-package.json
+Thumbs.db
