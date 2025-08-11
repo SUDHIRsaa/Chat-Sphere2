@@ -14,7 +14,7 @@ const __dirname=path.resolve();
 app.use(cors({
     origin: [
         "http://localhost:3000", 
-        "https://chat-sphere2-5hhr.vercel.app"
+        "https://chat-sphere2-5hhb-lez176jun-sudumayaz611-gmailcoms-projects.vercel.app"
     ],
     credentials: true
 }));
