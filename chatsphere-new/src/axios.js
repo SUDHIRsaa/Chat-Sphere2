@@ -3,7 +3,7 @@ import axios from "axios";
 const API_BASE_URL =
   process.env.REACT_APP_API_URL?.replace(/\/+$/, "") ||
   (process.env.NODE_ENV === "production"
-    ? "https://chat-sphere2-2.onrender.com/api"
+    ? "https://chat-sphere2-2.onrender.com"
     : "http://localhost:5002/api");
 
 export const axiosInstance = axios.create({
