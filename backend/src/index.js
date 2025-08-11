@@ -9,7 +9,7 @@ import {app,server} from "./lib/socket.js"
 import path from "path"
 
 dotenv.config()
-const PORT= 5002
+const PORT= process.env.PORT
 const __dirname=path.resolve();
 app.use(cors({
     origin:'http://localhost:3000',
