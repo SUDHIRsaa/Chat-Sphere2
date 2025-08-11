@@ -12,13 +12,13 @@ dotenv.config()
 const PORT= process.env.PORT
 const __dirname=path.resolve();
 app.use(cors({
-    origin:'http://localhost:3000',
-   
-    credentials:true,
-    
-}
+    origin: [
+        "http://localhost:3000", 
+        "https://chat-sphere2-5hhr.vercel.app"
+    ],
+    credentials: true
+}));
 
-))
 app.use(cookieParser());
 
 app.use(express.json({ limit: '10mb'}))
