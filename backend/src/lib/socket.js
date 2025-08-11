@@ -1,28 +1,19 @@
 import { Server } from "socket.io";
 import http from "http";
 import express from "express";
+import { allowedOrigins } from "../config/corsOrigins.js"; // We'll create this
 
 const app = express();
 const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: (origin, callback) => {
-      if (
-        !origin || // allow non-browser clients
-        origin.includes("localhost") ||
-        /\.vercel\.app$/.test(new URL(origin).hostname)
-      ) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS (Socket.io): " + origin));
-      }
-    },
+    origin: allowedOrigins,
     credentials: true,
   },
 });
 
-const userSocketMap = {}; // {userId: socketId}
+const userSocketMap = {};
 
 export function getReceiverSocketId(userId) {
   return userSocketMap[userId];
