@@ -11,14 +11,21 @@ import path from "path"
 dotenv.config()
 const PORT= process.env.PORT
 const __dirname=path.resolve();
-app.use(cors({
-    origin: [
-        "http://localhost:3000", 
-        "https://chat-sphere2-5hhb-lez176jun-sudumayaz611-gmailcoms-projects.vercel.app"
-    ],
-    credentials: true
-}));
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://chat-sphere2-5hhr-git-master-sudmaurya2611-gmailcoms-projects.vercel.app"
+];
 
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+}));
 app.use(cookieParser());
 
 app.use(express.json({ limit: '10mb'}))
