@@ -7,9 +7,14 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:3000"],
+    origin: [
+      "http://localhost:3000",
+"chat-sphere2-5hhr-git-main-sudmaurya2611-gmailcoms-projects.vercel.app"
+    ],
+    credentials: true
   },
 });
+
 
 export function getReceiverSocketId(userId) {
   return userSocketMap[userId];
