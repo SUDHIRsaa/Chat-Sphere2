@@ -7,21 +7,26 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: [
-      "http://localhost:3000",
-"chat-sphere2-5hhr-git-main-sudmaurya2611-gmailcoms-projects.vercel.app"
-    ],
-    credentials: true
+    origin: (origin, callback) => {
+      if (
+        !origin || // allow non-browser clients
+        origin.includes("localhost") ||
+        /\.vercel\.app$/.test(new URL(origin).hostname)
+      ) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS (Socket.io): " + origin));
+      }
+    },
+    credentials: true,
   },
 });
 
+const userSocketMap = {}; // {userId: socketId}
 
 export function getReceiverSocketId(userId) {
   return userSocketMap[userId];
 }
-
-
-const userSocketMap = {}; // {userId: socketId}
 
 io.on("connection", (socket) => {
   console.log("A user connected", socket.id);
@@ -29,7 +34,6 @@ io.on("connection", (socket) => {
   const userId = socket.handshake.query.userId;
   if (userId) userSocketMap[userId] = socket.id;
 
- 
   io.emit("getOnlineUsers", Object.keys(userSocketMap));
 
   socket.on("disconnect", () => {
