@@ -13,7 +13,7 @@ const PORT= process.env.PORT
 const __dirname=path.resolve();
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://chat-sphere2-5hhr-git-master-sudmaurya2611-gmailcoms-projects.vercel.app"
+  "chat-sphere2-5hhr-git-main-sudmaurya2611-gmailcoms-projects.vercel.app"
 ];
 
 app.use(cors({
