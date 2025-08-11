@@ -13,9 +13,10 @@ const PORT= process.env.PORT
 const __dirname=path.resolve();
 const allowedOrigins = [
   "http://localhost:3000",
-  "chat-sphere2-5hhr-git-main-sudmaurya2611-gmailcoms-projects.vercel.app"
+  "https://chat-sphere2-5hhr.vercel.app",
+  "https://chat-sphere2-5hhr-git-main-sudmaurya2611-gmailcoms-projects.vercel.app",
+  "https://chat-sphere2-5hhr-git-master-sudmaurya2611-gmailcoms-projects.vercel.app"
 ];
-
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
