@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "npm install --prefix backend && npm install  --prefix chatsphere-new && npm run build --prefix chatsphere-new ",
+    "build":"npm install --prefix backend && npm install  --prefix chatsphere-new && npm run build --prefix chatsphere-new ",
     "start": " npm run start --  --prefix backend"
   },
   "author": "",
@@ -11,5 +11,15 @@
   "description": "",
   "dependencies": {
     "new-folder": "file:"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SUDHIRsaa/Chat-Sphere2.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/SUDHIRsaa/Chat-Sphere2/issues"
+  },
+  "homepage": "https://github.com/SUDHIRsaa/Chat-Sphere2#readme"
 }
