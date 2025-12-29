@@ -52,7 +52,7 @@ SkillUp is a full-stack web application designed to help students improve their 
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/skillup.git
+git clone ""
 
 # Navigate to project directory
 cd skillup
